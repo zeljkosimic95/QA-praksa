@@ -1,27 +1,16 @@
-describe('Test section 1', () => {
-  let firstNumber = element(by.model('first'));
-  let secondNumber = element(by.model('second'));
-  let goButton = element(by.id('gobutton'));
-  let latestResult = element(by.binding('latest'));
-  
-  beforeEach(function() {
-    browser.get('http://juliemr.github.io/protractor-demo/');
-  });
-  
-  it('Validate proper addition', () => {
+let calculatorPage = require('./pom/calculator');
 
-    firstNumber.sendKeys(5);
-    secondNumber.sendKeys(10);
+describe('Should validate operations', () => {
+  
+  it('Validate proper multiplication', () => {
 
-    goButton.click();
+    calculatorPage.get();
+    calculatorPage.multiplication(10,20);
 
     expect(browser.getTitle()).toEqual('Super Calculator');
-    expect(latestResult.getText()).not.toBeNull();
-    expect(latestResult.getText()).toEqual('15');
+    expect(calculatorPage.finalResult()).not.toBeNull();
+    expect(calculatorPage.finalResult()).toEqual('200');
 
   });
 
-  it('Test case 2', () => {
-    expect(1).toBeGreaterThan(0);
-  })
 });
