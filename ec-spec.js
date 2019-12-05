@@ -1,3 +1,5 @@
+let base = require('./pom/base');
+
 const EC = protractor.ExpectedConditions
 
 describe('Expected Conditions', () => {
@@ -15,7 +17,7 @@ describe('Expected Conditions', () => {
     const cartButton = element(by.css('[class="bar-notification success"]'))
     const addToCart = element(by.id('add-to-cart-button-4'))
     addToCart.click()
-    browser.wait(EC.visibilityOf(cartButton))
-    cartButton.click()
-  })
+    base.checkElementVisibility(cartButton);
+    cartButton.click();
+  });
 })
