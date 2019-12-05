@@ -1,26 +1,21 @@
+const EC = protractor.ExpectedConditions
+
 let LandingPage = function () {
-    
-  let loginButton = element(by.className('ico-login'));
-  let logoutButton = element(by.className('ico-logout'));
-  let email = element(by.id('Email'));
-  let password = element(by.id('Password'));
-  let login = element(by.className('button-1 login-button'));
-  
-  this.login = function () {
+  this.loginButton = element(by.className('ico-login'))
+  this.logoutButton = element(by.className('ico-logout'))
+  this.emailField = element(by.id('Email'))
+  this.passwordField = element(by.id('Password'))
+  this.loginButton2 = element(by.className('button-1 login-button'))
 
-      loginButton.click();
-      browser.sleep(500);
-      email.sendKeys('');
-      password.sendKeys('');
-      login.click();
-
-  };
-
-  this.logout = function () {
-      return logoutButton.getText();
-
+  this.login = () => {
+    browser.wait(EC.elementToBeClickable(this.loginButton))
+    this.loginButton.click()
+    browser.wait(EC.elementToBeClickable(this.emailField))
+    this.emailField.sendKeys('testqapraksa@gmail.com')
+    this.passwordField.sendKeys('testpass')
+    browser.sleep(2000)
+    this.loginButton2.click()
   }
-  
 }
 
-module.exports = new LandingPage();
+module.exports = new LandingPage()

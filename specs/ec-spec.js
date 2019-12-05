@@ -1,5 +1,4 @@
-let base = require('./pom/base');
-
+let base = require('../pom/functions');
 const EC = protractor.ExpectedConditions
 
 describe('Expected Conditions', () => {

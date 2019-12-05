@@ -1,17 +1,37 @@
 # QA-praksa
+
+## Demo websites used:
+- [Protractor Super Calculator](http://juliemr.github.io/protractor-demo/)
+- [Demo WebStore](https://demo.nopcommerce.com/)
+
+## Specs:
+Example for the Calculator Protractor site, in Angular
+```
+calculator-spec.js
+```
+Example of Protractor ExpectedConditions usage
+```
+ec-spec.js
+```
+Example of login test case with Page Object Model and functions
+```
+login-spec.js
 ```
 
-1. Overview
-2. Environment
-3. Running
-
+## POM:
+Elements and functions for the calculator
 ```
-
-# 1. Overview
-...
-
-# 2. Environment
----
-
-# 2. Runnning
-script
+calculator-page.js
+```
+Elements and functions for the home and login page of the demo site
+```
+landing-page.js
+```
+Functions for general use, contains stuff like the custom click() function
+```
+functions.js
+```
+# Run tests:
+```code
+protractor conf
+```

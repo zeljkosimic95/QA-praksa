@@ -4,12 +4,28 @@ exports.config = {
   directConnect: true,
 
   specs: [
-    // './test-spec.js',
-    './ec-spec.js'
+    // './specs/calculator-spec.js',
+    // './specs/ec-spec.js',
+    './specs/login-spec.js',
   ],
 
+  capabilities: {
+    browserName: 'firefox'
+  },
+
+  jasmineNodeOpts: {
+    print: () => {
+    },
+    showColors: true,
+  },
+
   onPrepare: () => {
-    browser.ignoreSynchronization = true;
-    jasmine.getEnv().addReporter(new SpecReporter())
+    browser.ignoreSynchronization = true
+    browser.driver.manage().window().maximize();
+    jasmine.getEnv().addReporter(new SpecReporter({
+      spec: {
+        displayStacktrace: true,
+      },
+    }))
   }
 }
