@@ -4,8 +4,8 @@ exports.config = {
   directConnect: true,
 
   specs: [
-    // './specs/calculator-spec.js',
-    // './specs/ec-spec.js',
+    './specs/calculator-spec.js',
+    './specs/ec-spec.js',
     './specs/login-spec.js',
   ],
 

@@ -1,4 +1,3 @@
-let base = require('../pom/functions');
 const EC = protractor.ExpectedConditions
 
 describe('Expected Conditions', () => {
@@ -8,7 +7,6 @@ describe('Expected Conditions', () => {
     const computersButton = element.all(by.css('[class="top-menu notmobile"] li')).first()
     browser.wait(EC.elementToBeClickable(computersButton), 10000)
     computersButton.click()
-    browser.sleep(3000)
   })
 
   it('Example 2', () => {
@@ -16,7 +14,8 @@ describe('Expected Conditions', () => {
     const cartButton = element(by.css('[class="bar-notification success"]'))
     const addToCart = element(by.id('add-to-cart-button-4'))
     addToCart.click()
-    base.checkElementVisibility(cartButton);
+    browser.wait(EC.elementToBeClickable(cartButton), 10000)
     cartButton.click();
+    browser.sleep(3000)
   });
 })
